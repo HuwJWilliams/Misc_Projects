@@ -1,19 +1,18 @@
 from turtle import Turtle
 import random
 
-BALL_SPEED = 3
-
 
 class Ball(Turtle):
-    def __init__(self, initial_speed=BALL_SPEED):
+    def __init__(self):
         super().__init__()
 
         self.shape("circle")
         self.penup()
         self.speed("fastest")
         self.color("white")
-        self.x_speed = initial_speed
-        self.y_speed = initial_speed
+        self.x_speed = 3
+        self.y_speed = 3
+        self.move_speed = 0.0001
         self.position = (0, 0)
 
     def move(self):
@@ -27,12 +26,9 @@ class Ball(Turtle):
 
     def bounce_x(self):
         self.x_speed *= -1
+        self.move_speed *= 0.0001
 
     def reset_position(self):
         self.goto(0, 0)
-        self.x_speed = BALL_SPEED
+        self.move_speed = 0
         self.bounce_x()
-
-    def increase_speed(self):
-        self.x_speed *= 1.1
-        self.y_speed *= 1.1

@@ -32,7 +32,8 @@ screen.onkey(r_paddle.go_down, "k")
 # Game Loop
 game_is_on = True
 while game_is_on:
-    time.sleep(0.01)
+    time.sleep(ball.move_speed)
+    print(ball.move_speed)
     screen.update()
     ball.move()
 
@@ -48,7 +49,6 @@ while game_is_on:
         and l_paddle.distance(ball) < 50
     ):
         ball.bounce_x()
-        ball.increase_speed()
 
     elif ball.xcor() > 380:
         scoreboard.l_score += 1
