@@ -48,6 +48,7 @@ while game_is_on:
         and l_paddle.distance(ball) < 50
     ):
         ball.bounce_x()
+        ball.increase_speed()
 
     elif ball.xcor() > 380:
         scoreboard.l_score += 1
