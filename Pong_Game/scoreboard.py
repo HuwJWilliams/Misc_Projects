@@ -10,13 +10,21 @@ class Scoreboard(Turtle):
         self.color("white")
         self.penup()
         self.hideturtle()
-        self.goto(0, 260)
         self.update_scoreboard()
+
+    def write_scoreboard(self, pos, score):
+        self.goto(pos)
+        self.write(
+            f"{score}",
+            align="center",
+            font=("Courier", 30, "bold"),
+        )
 
     def update_scoreboard(self):
         self.clear()
-        self.write(
-            f"{self.l_score}:{self.r_score}",
-            align="center",
-            font=("Courier", 24, "bold"),
+        self.left_scoreboard = self.write_scoreboard(
+            pos=(-100, 240), score=self.l_score
+        )
+        self.right_scoreboard = self.write_scoreboard(
+            pos=(100, 240), score=self.r_score
         )
