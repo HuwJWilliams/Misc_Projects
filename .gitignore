@@ -1,6 +1,8 @@
 # Python bytecode files
 __pycache__/
 .venv/
+poetry.lock
+pyproject.toml
 *.pyc
 *.pyo
 *.txt
