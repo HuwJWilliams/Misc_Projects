@@ -74,3 +74,10 @@ class Snake:
         xy_coordinate = self.segment_ls[-1].position()
         t = self.make_body_piece(xy_coordinate)
         self.segment_ls.append(t)
+
+    def reset(self):
+        for seg in self.segment_ls:
+            seg.goto(1000, 1000)
+        self.segment_ls.clear()
+        self.make_init_snake()
+        self.head = self.segment_ls[0]
