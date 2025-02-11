@@ -28,17 +28,16 @@ while game_is_on:
     cars.move_cars()
     cars.reset_car()
     for car in cars.cars_ls:
-        if player.distance(car) < 15:
+        if player.distance(car) < 20:
             player.reset_player()
             cars.clear_screen()
             scoreboard.game_over()
             time.sleep(3)
             game_is_on = False  # End the game
 
-        if player.ycor() > 280:
-            player.reset_player()
+        if player.is_at_finish_line():
             scoreboard.level += 1
             scoreboard.update_scoreboard()
-            cars.car_speed += 2
-            cars.n_cars += 5
-            cars.create_init_cars()
+            cars.level_up()  # Increase the number of cars and speed
+
+screen.exitonclick()

@@ -4,7 +4,7 @@ import random
 COLOURS = ["red", "orange", "yellow", "green", "blue", "purple"]
 STARTING_MOVE_DISTANCE = 5
 MOVE_INCRIEMENT = 10
-N_CARS = 1
+N_CARS = 10
 
 
 class CarManager(Turtle):
@@ -27,11 +27,10 @@ class CarManager(Turtle):
         return x_position, y_position
 
     def create_car(self):
-        colour = random.choice(COLOURS)
-        x, y = self.random_coords(y_range=(-250, 250), x_range=(-250, 250))
+        x, y = self.random_coords(y_range=(-250, 250), x_range=(-250, 300))
         new_car = Turtle("square")
         new_car.shapesize(stretch_wid=1, stretch_len=2)
-        new_car.color(colour)
+        new_car.color(random.choice(COLOURS))
         new_car.penup()
         new_car.goto(x, y)
         return new_car
@@ -51,3 +50,8 @@ class CarManager(Turtle):
             car.hideturtle()
             del car
         self.cars_ls = []
+
+    def level_up(self):
+        self.car_speed += 2
+        self.n_cars += 5
+        self.create_init_cars()
