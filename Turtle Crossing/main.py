@@ -36,8 +36,7 @@ while game_is_on:
             game_is_on = False  # End the game
 
         if player.is_at_finish_line():
-            scoreboard.level += 1
-            scoreboard.update_scoreboard()
+            scoreboard.level_up()
             cars.level_up()  # Increase the number of cars and speed
 
 screen.exitonclick()
