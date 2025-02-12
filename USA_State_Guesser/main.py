@@ -46,5 +46,3 @@ states_not_guessed = pd.DataFrame(
 )
 
 states_not_guessed.to_csv("./states_not_guessed.csv", index_label=False)
-
-# testing branches
